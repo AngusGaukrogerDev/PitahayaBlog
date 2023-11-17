@@ -1,10 +1,11 @@
 
 const Navbar = () => {
     return(
-        <div className="w-full h-full py-3 bg-offwhitey-default text-blackaf-default">
-        <h1 className="text-blackaf font-semibold text-3xl z-100">The Pitahaya</h1>
-    </div>
-
+        <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
+        <h1 className="text-5xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
+          The Pitahaya.
+        </h1>
+      </section>
     )
 
 }

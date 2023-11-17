@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import { fetchBlogData } from '../services/blogUtils';
-
+import PostPreview from "./postPreview";
 const BlogHomePage = () => {
   const [blogData, setBlogData] = useState([]);
 
@@ -17,15 +17,21 @@ const BlogHomePage = () => {
   }, []); // Empty dependency array ensures the effect runs only once on component mount
 
   return (
-    <div>
-      {blogData.map((blog, index) => (
-        <div className="my-5" key={index}>
-          <p>{blog.contentMetadata.title}</p>
-          <p>{blog.contentMetadata.date}</p>
-          <div dangerouslySetInnerHTML={{ __html: blog.contentHtml }} />
-        </div>
-      ))}
-    </div>
+    <section>
+      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-20 md:gap-y-32 mb-32">
+        {blogData.map((blog, index) => (
+          <PostPreview
+            key={index}
+            title={blog.contentMetadata.title}
+            coverImage={blog.contentMetadata.coverImage}
+            date={blog.contentMetadata.date}
+            author={blog.contentMetadata.author}
+            slug={index}
+            excerpt={blog.contentMetadata.excerpt}
+          />
+        ))}
+      </div>
+    </section>
   );
 }
 
