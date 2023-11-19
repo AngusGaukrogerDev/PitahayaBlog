@@ -1,8 +1,6 @@
 import PostPreview from "./postPreview";
 
 const BlogHomePage = (props) => {
-  console.log("blogData in BlogHomePage component:", props.blogData);
-
   return (
     <section>
       <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-5 lg:gap-x-10 gap-y-20 md:gap-y-32 mb-16">
