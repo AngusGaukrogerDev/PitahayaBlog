@@ -16,14 +16,14 @@ async function getData(topic) {
 const Page = async() => {
   const travelBlogData = await getData("travel-blogs");
   return(
-    <div className="h-full w-full flex flex-col justify-center items-center bg-whitey-default mx-auto px-5 ">
+    <div className="h-full w-full flex flex-col justify-center items-center bg-whitey-default mx-auto px-16 ">
       <Navbar />
       <SectionHeader headerText={"Travel"}/>
-      <BlogHomePage blogData={travelBlogData} />
+      <BlogHomePage blogData={travelBlogData} topic={"travel"} />
       <SectionHeader headerText={"Tech"}/>
-      <BlogHomePage blogData={travelBlogData}/>
+      <BlogHomePage blogData={travelBlogData} topic={"travel"}/>
       <SectionHeader headerText={"Lifestyle"}/>
-      <BlogHomePage blogData={travelBlogData}/>
+      <BlogHomePage blogData={travelBlogData} topic={"travel"}/>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import CoverImage from "./coverImages";
+import CoverImage from "./coverImage";
 import DateFormatter from "./dateFormatter";
 import Link from 'next/link'
 import Avatar from "./avatar";
@@ -9,6 +9,7 @@ const PostPreview = ({
     excerpt,
     author,
     slug,
+    topic
   }) => {
     return (
         <div>
@@ -17,7 +18,7 @@ const PostPreview = ({
           </div>
           <h3 className="text-3xl mb-3 leading-snug">
             <Link
-              as={`posts/${slug}`}
+              as={`/posts/${topic}/${slug}`}
               href="posts/[slug]"
               className="hover:underline"
             >

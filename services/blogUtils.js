@@ -12,13 +12,37 @@ export const fetchBlogData = async (url) => {
       },
     });
 
-    const data = await response.json();
+    const data = await   response.json();
     const blogArray = await Promise.all(data.data.map(async (item) => {
+      const id = item.id;
       const attributes = item.attributes;
       const { contentHtml, contentMetadata } = await processMarkdown(attributes.Travel);
-      return { contentHtml, contentMetadata };
+      return { contentHtml, contentMetadata, id };
     }));
 
+    return blogArray;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+};
+
+export const fetchPostData = async (url) => {
+  try {
+    const response = await fetch(url, {
+      cache: 'no-store', 
+      method: 'GET',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    });
+
+    const data = await response.json();
+    const id = data.data.id;
+    const attributes = data.data.attributes;
+    const { contentHtml, contentMetadata } = await processMarkdown(attributes.Travel);
+
+    const blogArray = { contentHtml, contentMetadata, id };
     return blogArray;
   } catch (error) {
     console.error(error);

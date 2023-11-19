@@ -1,9 +1,13 @@
+import Link from "next/link";
+
 const Navbar = () => {
     return(
-      <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
-          <h1 className="text-5xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
-            The Pitahaya.
-          </h1>
+      <section className="w-full flex-col md:flex-row flex items-start md:justify-between mt-16 mb-16 md:mb-12">
+        <Link href="/">
+          <h2 className="w-full text-5xl md:text-8xl text-start font-bold tracking-tighter leading-tight md:pr-8">
+              The Pitahaya.
+          </h2>
+        </Link>  
       </section>
     )
 
