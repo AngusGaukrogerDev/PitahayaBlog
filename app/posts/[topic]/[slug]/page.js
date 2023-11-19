@@ -18,7 +18,6 @@ async function getData(topic, slug) {
   try{
     const url = `https://inglespalmundo.com/api/${topicEndpoint}/${slug}`;
     const blogData = await fetchPostData(url);
-    console.log(blogData)
     return blogData;
   } catch (error) {
   console.error("Error fetching blog data:", error);
