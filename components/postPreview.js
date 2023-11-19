@@ -1,4 +1,3 @@
-'use client'
 import CoverImage from "./coverImages";
 import DateFormatter from "./dateFormatter";
 import Link from 'next/link'

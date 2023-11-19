@@ -5,6 +5,7 @@ import * as matter from 'gray-matter';
 export const fetchBlogData = async (url) => {
   try {
     const response = await fetch(url, {
+      cache: 'no-store', 
       method: 'GET',
       headers: {
         'Content-type': 'application/json',
