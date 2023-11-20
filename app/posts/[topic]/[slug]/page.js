@@ -30,19 +30,20 @@ export default async function Page() {
 
   const data = await getData(topic, slug)
   return(
+    
     <div className=' w-full'>
-    <article className="mb-32 px-16">
-      <Navbar />
-      <PostHeader 
-        title = {data.contentMetadata.title}
-        coverImage={data.contentMetadata.coverImage}
-        date={data.contentMetadata.date}
-        author={data.contentMetadata.author}
-      />
-      <PostBody 
-      content={data.contentHtml}
-      />
-    </article>
+      <article className="mb-32 px-64">
+        <Navbar />
+        <PostHeader 
+          title = {data.contentMetadata.title}
+          coverImage={data.contentMetadata.coverImage}
+          date={data.contentMetadata.date}
+          author={data.contentMetadata.author}
+        />
+        <PostBody 
+        content={data.contentHtml}
+        />
+      </article>
     </div>
     
   );

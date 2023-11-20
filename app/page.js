@@ -16,7 +16,7 @@ async function getData(topic) {
 const Page = async() => {
   const travelBlogData = await getData("travel-blogs");
   return(
-    <div className="h-full w-full flex flex-col justify-center items-center bg-whitey-default mx-auto px-16 ">
+    <div className="h-full w-full flex flex-col justify-center items-center bg-whitey-default mx-auto px-64 ">
       <Navbar />
       <SectionHeader headerText={"Travel"}/>
       <BlogHomePage blogData={travelBlogData} topic={"travel"} />
