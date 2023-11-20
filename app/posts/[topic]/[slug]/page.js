@@ -32,7 +32,7 @@ export default async function Page() {
   return(
     
     <div className=' w-full'>
-      <article className="mb-32 px-64">
+      <article className="mb-32 px-3 sm:px-64">
         <Navbar />
         <PostHeader 
           title = {data.contentMetadata.title}
