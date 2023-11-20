@@ -31,8 +31,8 @@ export default async function Page() {
   const data = await getData(topic, slug)
   return(
     
-    <div className=' w-full'>
-      <article className="mb-32 px-3 sm:px-64">
+    <div className='bg-whitey-default w-full '>
+      <article className="mb-32  px-5 sm:px-16 xl:px-64">
         <Navbar />
         <PostHeader 
           title = {data.contentMetadata.title}
