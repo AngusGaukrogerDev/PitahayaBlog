@@ -1,6 +1,6 @@
 'use client'
 import Navbar from '@/components/navbar';
-import { useParams, useRouter } from 'next/navigation'
+import { useParams } from 'next/navigation'
 import { fetchPostData } from '@/services/blogUtils';
 import PostHeader from '@/components/postHeader';
 import PostBody from '@/components/postBody';
@@ -25,7 +25,6 @@ async function getData(topic, slug) {
 }
 
 export default async function Page() {
-  const router = useRouter();
   const {topic, slug} = useParams();
 
   const data = await getData(topic, slug)
