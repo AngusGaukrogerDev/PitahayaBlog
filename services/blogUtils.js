@@ -2,7 +2,7 @@ import { remark } from 'remark';
 import html from 'remark-html';
 import * as matter from 'gray-matter';
 
-export const fetchBlogData = async (url) => {
+export const fetchBlogData = async (url, topic) => {
   try {
     const response = await fetch(url, {
       cache: 'no-store', 
@@ -16,7 +16,8 @@ export const fetchBlogData = async (url) => {
     const blogArray = await Promise.all(data.data.map(async (item) => {
       const id = item.id;
       const attributes = item.attributes;
-      const { contentHtml, contentMetadata } = await processMarkdown(attributes.Travel);
+      const { contentHtml, contentMetadata } = await processMarkdown(attributes[topic]);
+
       return { contentHtml, contentMetadata, id };
     }));
 
@@ -27,7 +28,7 @@ export const fetchBlogData = async (url) => {
   }
 };
 
-export const fetchPostData = async (url) => {
+export const fetchPostData = async (url, topic) => {
   try {
     const response = await fetch(url, {
       cache: 'no-store', 
@@ -40,7 +41,7 @@ export const fetchPostData = async (url) => {
     const data = await response.json();
     const id = data.data.id;
     const attributes = data.data.attributes;
-    const { contentHtml, contentMetadata } = await processMarkdown(attributes.Travel);
+    const { contentHtml, contentMetadata } = await processMarkdown(attributes[topic]);
 
     const blogArray = { contentHtml, contentMetadata, id };
     return blogArray;

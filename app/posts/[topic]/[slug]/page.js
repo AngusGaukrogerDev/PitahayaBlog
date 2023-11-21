@@ -7,9 +7,19 @@ import PostBody from '@/components/postBody';
 
 async function getData(topic, slug) {
   var topicEndpoint = "";
-  switch(topic){
+  var topicCapitalised = ""
+  switch (topic) {
     case "travel":
-      topicEndpoint = "travel-blogs"
+      topicEndpoint = "travel-blogs";
+      topicCapitalised = "Travel"
+      break;
+    case "tech":
+      topicEndpoint = "tech-blogs";
+      topicCapitalised = "Tech"
+      break;
+    case "lifestyle":
+      topicEndpoint = "lifestyle-blogs";
+      topicCapitalised = "Lifestyle"
       break;
     default:
       break;
@@ -17,7 +27,7 @@ async function getData(topic, slug) {
 
   try{
     const url = `https://inglespalmundo.com/api/${topicEndpoint}/${slug}`;
-    const blogData = await fetchPostData(url);
+    const blogData = await fetchPostData(url, topicCapitalised);
     return blogData;
   } catch (error) {
   console.error("Error fetching blog data:", error);
@@ -26,7 +36,6 @@ async function getData(topic, slug) {
 
 export default async function Page() {
   const {topic, slug} = useParams();
-
   const data = await getData(topic, slug)
   return(
     
