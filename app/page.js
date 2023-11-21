@@ -18,11 +18,11 @@ const Page = async() => {
   return(
     <div className="h-full w-full flex flex-col justify-center items-center mx-auto px-5 sm:px-16 xl:px-64 ">
       <Navbar />
-      <SectionHeader headerText={"Travel"}/>
+      <SectionHeader headerText={"Travel"} topic={"travel"}/>
       <BlogHomePage blogData={travelBlogData} topic={"travel"} />
-      <SectionHeader headerText={"Tech"}/>
+      <SectionHeader headerText={"Tech"} topic={"tech"}/>
       <BlogHomePage blogData={travelBlogData} topic={"travel"}/>
-      <SectionHeader headerText={"Lifestyle"}/>
+      <SectionHeader headerText={"Lifestyle"} topic={"lifestyle"}/>
       <BlogHomePage blogData={travelBlogData} topic={"travel"}/>
     </div>
   );
