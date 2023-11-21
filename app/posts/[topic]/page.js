@@ -6,9 +6,19 @@ import PostPreview from "@/components/postPreview";
 
 async function getData(topic) {
   var topicEndpoint = "";
+  var topicCapitalised = "";
   switch (topic) {
     case "travel":
       topicEndpoint = "travel-blogs";
+      topicCapitalised = "Travel"
+      break;
+    case "tech":
+      topicEndpoint = "tech-blogs";
+      topicCapitalised = "Tech"
+      break;
+    case "lifestyle":
+      topicEndpoint = "lifestyle-blogs";
+      topicCapitalised = "Lifestyle"
       break;
     default:
       break;
@@ -16,7 +26,7 @@ async function getData(topic) {
 
   try {
     const url = `https://inglespalmundo.com/api/${topicEndpoint}`;
-    const blogData = await fetchBlogData(url);
+    const blogData = await fetchBlogData(url, topicCapitalised);
     return blogData;
   } catch (error) {
     console.error("Error fetching blog data:", error);
