@@ -1,9 +1,12 @@
 'use client'
 import Navbar from '@/components/navbar';
 import { useParams } from 'next/navigation'
-import { fetchPostData } from '@/services/blogUtils';
+import { fetchPostData, fetchBlogData } from '@/services/blogUtils';
 import PostHeader from '@/components/postHeader';
 import PostBody from '@/components/postBody';
+import SectionHeader from '@/components/sectionHeader';
+import PostPreview from '@/components/postPreview';
+import Footer from "@/components/footer"
 
 async function getData(topic, slug) {
   var topicEndpoint = "";
@@ -27,8 +30,12 @@ async function getData(topic, slug) {
 
   try{
     const url = `https://inglespalmundo.com/api/${topicEndpoint}/${slug}`;
-    const blogData = await fetchPostData(url, topicCapitalised);
-    return blogData;
+    const urlRecommended = `https://inglespalmundo.com/api/${topicEndpoint}`;
+
+    const data = await fetchPostData(url, topicCapitalised);
+    const recommendedPosts = await fetchBlogData(urlRecommended, topicCapitalised);
+
+    return{data, recommendedPosts, topicCapitalised};
   } catch (error) {
   console.error("Error fetching blog data:", error);
 }
@@ -36,7 +43,8 @@ async function getData(topic, slug) {
 
 export default async function Page() {
   const {topic, slug} = useParams();
-  const data = await getData(topic, slug)
+  const {data, recommendedPosts, topicCapitalised} = await getData(topic, slug)
+  const firstThreeBlogs = recommendedPosts.slice(0, 3);
   return(
     
     <div className=' w-full '>
@@ -51,6 +59,22 @@ export default async function Page() {
         <PostBody 
         content={data.contentHtml}
         />
+        <SectionHeader headerText={`More ${topicCapitalised} Articles`} topic={topic} />
+        <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-5 lg:gap-x-10 gap-y-14 md:gap-y-32 mb-7 md:mb-10 ">
+        {recommendedPosts && firstThreeBlogs.map((blog) => (
+          <PostPreview
+            key={blog.id}
+            title={blog.contentMetadata.title}
+            coverImage={blog.contentMetadata.coverImage}
+            date={blog.contentMetadata.date}
+            author={blog.contentMetadata.author}
+            slug={blog.id}
+            excerpt={blog.contentMetadata.excerpt}
+            topic={topic}
+          />
+        ))}
+        </div>  
+        <Footer />
       </article>
     </div>
     

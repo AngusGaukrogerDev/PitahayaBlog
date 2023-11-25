@@ -1,7 +1,9 @@
 import BlogHomePage from "@/components/blog-home-page"
 import Navbar from "@/components/navbar"
 import SectionHeader from "@/components/sectionHeader"
+import SectionViewMore from "@/components/sectionViewMore";
 import { fetchBlogData } from '@/services/blogUtils';
+import Footer from "@/components/footer"
 
 async function getData(topic) {
   var topicCapitalised = "";
@@ -38,10 +40,15 @@ const Page = async() => {
       <Navbar />
       <SectionHeader headerText={"Travel"} topic={"travel"}/>
       <BlogHomePage blogData={travelBlogData} topic={"travel"} />
+      <SectionViewMore text={"Travel"} topic={"travel"}/>
       <SectionHeader headerText={"Tech"} topic={"tech"}/>
       <BlogHomePage blogData={techBlogData} topic={"tech"}/>
+      <SectionViewMore text={"Tech"} topic={"tech"}/>
       <SectionHeader headerText={"Lifestyle"} topic={"lifestyle"}/>
       <BlogHomePage blogData={lifestyleBlogData} topic={"lifestyle"}/>
+      <SectionViewMore text={"Lifestyle"} topic={"lifestyle"}/>
+      <Footer />
+
     </div>
   );
 }

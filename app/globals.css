@@ -5,10 +5,16 @@
 h1{
   font-family: 'Poppins', sans-serif;
 }
+
 h2{
   font-weight: bold;
 }
 
 body{
   background-color: #fffbff;
+}
+
+
+html, body {
+  scroll-behavior: smooth;
 }
