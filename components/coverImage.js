@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-const CoverImage = ({ title, src, slug }) => {
+const CoverImage = ({ title, src, slug, topic }) => {
     const image = (
       <Image
         src={src}
@@ -14,7 +14,9 @@ const CoverImage = ({ title, src, slug }) => {
     return (
       <div className="sm:mx-0">
         {slug ? (
-          <Link as={`/posts/${slug}`} href="/posts/[slug]" aria-label={title}>
+          <Link as={`/posts/${topic}/${slug}/`}
+            href="posts/[topic]/[slug]/"
+            aria-label={title}>
             {image}
           </Link>
         ) : (
