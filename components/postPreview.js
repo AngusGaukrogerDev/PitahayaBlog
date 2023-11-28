@@ -13,8 +13,8 @@ const PostPreview = ({
   }) => {
     return (
         <div>
-          <div className="my-5">
-            <CoverImage slug={slug} title={title} src={coverImage} />
+          <div className="my-5"> 
+             <CoverImage slug={slug} topic={topic} title={title} src={coverImage} />
           </div>
           <h3 className="text-xl  md:text-xl xl:text-xl font-semibold mb-3 leading-snug h-16 sm:h-20 xl:h-20">
             <Link
