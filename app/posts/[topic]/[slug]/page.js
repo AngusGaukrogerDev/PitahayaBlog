@@ -59,8 +59,8 @@ export default async function Page() {
         <PostBody 
         content={data.contentHtml}
         />
-        <SectionHeader headerText={`More ${topicCapitalised} Articles`} topic={topic} />
-        <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-5 lg:gap-x-10 gap-y-14 md:gap-y-32 mb-7 md:mb-10 ">
+        <SectionHeader  headerText={`More ${topicCapitalised} Articles`} topic={topic} />
+        <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-5 lg:gap-x-10 gap-y-14 md:gap-y-32 my-7 md:my-10 ">
         {recommendedPosts && firstThreeBlogs.map((blog) => (
           <PostPreview
             key={blog.id}

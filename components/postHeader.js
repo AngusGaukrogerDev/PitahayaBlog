@@ -8,7 +8,7 @@ import PostTitle from './postTitle'
 const PostHeader = ({ title, coverImage, date, author }) => {
   return (
     <> 
-      <div className="mb-8 md:mb-16 sm:mx-0 ">
+      <div className="my-8 md:my-16 sm:mx-0 ">
         <CoverImage title={title} src={coverImage} />
       </div>
       <PostTitle>{title}</PostTitle>
