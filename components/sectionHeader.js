@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 const SectionHeader = (props) => {
     return(
-        <section className="w-full my-5 md:my-7 text-4xl md:text-5xl font-semibold tracking-tighter leading-tight md:pr-8 text-blackaf-default">
+        <section className="w-full my-5 md:my-6 text-4xl md:text-5xl font-semibold tracking-tighter leading-tight md:pr-8 text-blackaf-default">
             <Link
             as={`/posts/${props.topic}/`}
             href="posts/[topic]/"
