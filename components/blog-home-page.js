@@ -1,7 +1,7 @@
 import PostPreview from "./postPreview";
 
 const BlogHomePage = (props) => {
-  const firstThreeBlogs = props.blogData.toReversed().slice(0, 3);
+  const firstThreeBlogs = props.blogData.slice(0, 3);
   return (
     <section>
       <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-5 lg:gap-x-10 gap-y-14 md:gap-y-32 mb-7 md:mb-10 ">
